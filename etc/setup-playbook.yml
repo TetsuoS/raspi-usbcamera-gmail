@@ -1,0 +1,27 @@
+---
+- hosts: debian_distribution_servers 
+  # rootで実行
+  become: yes
+  tasks:
+    # この処理はどのディストリビューションでも実行される
+    - name: test connection using ping module
+      ping:
+
+    # Mail via Gmail : sSMTPの導入
+    - name: sSMTP install
+      apt: name=ssmtp state=present update_cache=yes
+
+    # /etc/ssmtp/ssmtp.confの編集
+    # ここはまだ手動で設定
+
+    # Mail via Gmail : mailutilsの導入⇨ （Q）このモジュールの意味はいまいち不明？？？
+    - name: mailutils install
+      apt: name=mailutils state=present
+
+    # メールに添付するため sharutilsの導入 : uuencodeコマンド
+    - name: sharutils install for uuencode command
+      apt: name=sharutils state=present
+
+    # Webカメラの導入：通常のWebカメラ（Elecomなど）
+    - name: fswebcam install for ordinary webcamera
+      apt: name=fswebcam state=present

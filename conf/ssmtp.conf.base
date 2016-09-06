@@ -1,0 +1,11 @@
+root=xxxxxxxxxxxxx       #SSMTP用のアカウント@gmail.com
+mailhub=smtp.gmail.com:587
+rewriteDomain=gmail.com
+
+# The full hostname
+AuthUser=xxxxxxxxxxxx    # SSMTP用のアカウント
+AuthPass=xxxxxxxxxxxx    # SSMTP用のアカウントのパスワード
+UseSTARTTLS=YES
+UseTLS=YES
+AutoLogin=YES
+FromLineOverride=YES
